@@ -27,8 +27,8 @@ extension UIColor {
 extension NSColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int = UInt32()
-        Scanner(string: hex).scanHexInt32(&int)
+        var rgbValue: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
         let a, r, g, b: UInt32
         switch hex.count {
         case 3: // RGB (12-bit)
